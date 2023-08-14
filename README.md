@@ -1,3 +1,3 @@
 Доклад для школы qa.studio
 
-pip install -r requorements.txt
+pip install -r requirements.txt
