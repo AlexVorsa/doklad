@@ -11,7 +11,7 @@ from tests.pom.catalog import Catalog
 from tests.helper.common import InputHelper
 
 
-URL = 'https://testqastudio.me'
+URL = 'https://test-shop.qa.studio/'
 
 @pytest.mark.slow
 class TestSmoke:
@@ -53,7 +53,7 @@ class TestSmoke:
 
         logger.warning("Go to FAQ page")
         main_page.go_to_faq()
-        assert main_page.get_current_url() == 'https://testqastudio.me/faq/'
+        assert main_page.get_current_url() == 'https://test-shop.qa.studio//faq/'
 
 
     def test_count_of_all_products(self, browser):
@@ -114,7 +114,7 @@ class TestSmoke:
         browser.find_element(by=By.ID, value="place_order").click()
 
         WebDriverWait(browser, timeout=5, poll_frequency=1).until(
-            EC.url_contains("https://testqastudio.me/checkout/order-received/"))
+            EC.url_contains("https://test-shop.qa.studio/checkout/order-received/"))
 
         result = WebDriverWait(browser, timeout=10, poll_frequency=2).until(EC.text_to_be_present_in_element(
             (By.CSS_SELECTOR, "p.woocommerce-thankyou-order-received"), "Ваш заказ принят. Благодарим вас."))
